@@ -38,7 +38,7 @@ phpbb3
         config
         etc..
 ```
-After configuring [SimpleSamlPhP](http://www.simplesamlphp.org), enable the extension and choise authentication method SAML2.
+After configuring [SimpleSamlPhP](http://www.simplesamlphp.org), enable the extension and choise authentication method SAML2. And after this delete your [phpBB](http://www.phpBB.org) cache.
 
 If you for instance use Apache with a vhost setup, do not forget to add the [SimpleSamlPhP](http://www.simplesamlphp.org) SetEnv and Alias, like so:
 
