@@ -1,6 +1,6 @@
 <?php
 
-require_once("ClaimsUser.php");
+namespace noud\saml2\auth\provider;
 
 class UserRowBuilder
 {
@@ -21,5 +21,3 @@ class UserRowBuilder
         return $user_row;
     }
 }
-
-?>

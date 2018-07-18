@@ -1,5 +1,6 @@
 <?php
-require_once("GroupSchema.php");
+
+namespace noud\saml2\auth\provider;
 
 class ClaimsUser
 {
@@ -168,5 +169,3 @@ class ClaimsUser
         return 'da';
     }
 }
-
-?>

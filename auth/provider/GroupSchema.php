@@ -1,4 +1,7 @@
 <?php
+
+namespace noud\saml2\auth\provider;
+
 /**
  * Created by JetBrains PhpStorm.
  * User: martin
@@ -6,6 +9,7 @@
  * Time: 15:17
  * To change this template use File | Settings | File Templates.
  */
+
 class GroupSchema
 {
     public static function getFoundersGroupName()

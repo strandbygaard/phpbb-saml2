@@ -1,0 +1,32 @@
+{
+	"name": "noud/saml2",
+	"type": "phpbb-extension",
+	"description": "SAML2 authentication plugin",
+	"homepage": "",
+	"version": "1.1.1",
+	"keywords": ["phpBB", "Extension", "SAML", "SAML2"],
+	"license": "LGPL-3.0",
+	"authors": [
+		{
+			"name": "Noud de Brouwer",
+			"email": "noud4@home.nl",
+			"homepage": "",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": ""
+	},
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"provide": {
+		 "phpbb/phpbb": "3.1.0-RC3"
+	}	,
+	"extra": {
+		"display-name": "SAML2",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2"
+		}
+	}
+}

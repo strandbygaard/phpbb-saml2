@@ -1,4 +1,7 @@
 <?php
+
+namespace noud\saml2\auth\provider;
+
 /**
  * Created by JetBrains PhpStorm.
  * User: martin
@@ -30,5 +33,3 @@ class PasswordFactory
         return $string;
     }
 }
-
-?>

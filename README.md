@@ -1,7 +1,7 @@
 phpbb-saml2
 ===========
 
-A custom authentication module for phpBB v3.x that supports:
+A custom authentication module for phpBB v3.2 that supports:
 
 - Federated user authentication with SAML2
 - Automatic user profile creation on phpBB
@@ -21,4 +21,68 @@ I highly recommend that a basic [SimpleSamlPhP](http://www.simplesamlphp.org) is
 
 I have successfully tested with module with several different identity providers including [SimpleSamlPhP](http://www.simplesamlphp.org) itself, [Safewhere*Identify](http://safewhere.com/), and Microsoft AD FS2.0.
 
+##### Installation
 
+You have to put the [SimpleSamlPhP](http://www.simplesamlphp.org) in your [phpBB](http://www.phpBB.org) directory.
+And this module in the [phpBB](http://www.phpBB.org) directory. Like so:
+
+```
+phpbb3
+    ext
+        noud
+            saml2
+    simplesaml
+        attributemap
+        bin
+        cert
+        config
+        etc..
+```
+After configuring [SimpleSamlPhP](http://www.simplesamlphp.org), enable the extension and choise authentication method SAML2.
+
+If you for instance use Apache with a vhost setup, do not forget to add the [SimpleSamlPhP](http://www.simplesamlphp.org) SetEnv and Alias, like so:
+
+```apacheconfig
+<VirtualHost *:80>
+  ServerName phpbb3.localhost
+  DocumentRoot /var/www/phpbb3
+  Options Indexes FollowSymLinks
+
+  SetEnv SIMPLESAMLPHP_CONFIG_DIR /var/www/phpbb3/simplesaml/config
+
+  Alias /simplesaml /var/www/phpbb3/simplesaml/www
+
+  <Directory "/var/www/phpbb3/">
+    AllowOverride All
+    <IfVersion < 2.4>
+      Allow from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+      Require all granted
+    </IfVersion>
+  </Directory>
+
+</VirtualHost>
+```
+
+The [SimpleSamlPhP](http://www.simplesamlphp.org) authsources.php can for instance be configured like below for testing:
+
+```
+    'example-userpass' => array(
+        'exampleauth:UserPass',
+
+        // Give the user an option to save their username for future login attempts
+        // And when enabled, what should the default be, to save the username or not
+        //'remember.username.enabled' => FALSE,
+        //'remember.username.checked' => FALSE,
+
+        'student:studentpass' => array(
+            'uid' => array('student'),
+            'eduPersonAffiliation' => array('registeredusers'),
+        ),
+        'admin:admin' => array(
+            'uid' => array('admin'),
+            'eduPersonAffiliation' => array('administrators'),
+        ),
+    ),
+```

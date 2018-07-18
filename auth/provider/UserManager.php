@@ -1,8 +1,6 @@
 <?php
-require_once("PasswordFactory.php");
-require_once("UserRowBuilder.php");
-require_once("ClaimsUser.php");
-require_once("GroupManager.php");
+
+namespace noud\saml2\auth\provider;
 
 class UserManager
 {
@@ -18,10 +16,11 @@ class UserManager
 
     /**
      * @param ClaimsUser $claimsUser
+     * @param $allFields
      * @return array
      * @throws Exception
      */
-    function lookup(ClaimsUser $claimsUser)
+    function lookup(ClaimsUser $claimsUser, $allFields = false)
     {
         if (!isset($claimsUser)) {
             throw new Exception("claimsUser is null");
@@ -29,7 +28,12 @@ class UserManager
 
         global $db;
 
-        $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
+        if ($allFields) {
+            $fields = '*';
+        } else {
+            $fields = 'user_id, username, user_password, user_passchg, user_email, user_type, user_login_attempts';
+        }
+        $sql = 'SELECT ' . $fields . '
        		FROM ' . USERS_TABLE . "
        		WHERE username_clean = '" . $db->sql_escape($claimsUser->userName) . "'";
         $result = $db->sql_query($sql);
@@ -53,6 +57,10 @@ class UserManager
 
         // all the information has been compiled, add the user
         // tables affected: users table, profile_fields_data table, groups table, and config table.
+        if (!function_exists('user_add')) {
+            include(__DIR__ . '/../../../../../includes/functions_user.php');
+        }
+
         $user_id = user_add($user_row);
     }
 
@@ -105,5 +113,3 @@ class UserManager
         $db->sql_freeresult($result);
     }
 }
-
-?>

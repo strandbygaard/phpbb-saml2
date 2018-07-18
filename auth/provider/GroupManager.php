@@ -1,6 +1,6 @@
 <?php
 
-require_once("ClaimsUser.php");
+namespace noud\saml2\auth\provider;
 
 class GroupManager
 {
@@ -125,5 +125,3 @@ class ManagedGroupFilter implements IGroupFilter
         return $filtered;
     }
 }
-
-?>
