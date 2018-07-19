@@ -3,9 +3,9 @@
 	"type": "phpbb-extension",
 	"description": "SAML2 authentication plugin",
 	"homepage": "https://github.com/noud/phpbb-saml2",
-	"version": "1.1.1",
+	"version": "1.0.0",
 	"keywords": ["phpBB", "Extension", "SAML", "SAML2"],
-	"license": "LGPL-3.0",
+	"license": "GPL-2.0",
 	"authors": [
 		{
 			"name": "Noud de Brouwer",
