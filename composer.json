@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/noud/phpbb-saml2",
 	"version": "1.0.1",
 	"keywords": ["phpBB", "Extension", "SAML", "SAML2"],
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-only",
 	"authors": [
 		{
 			"name": "Noud de Brouwer",
