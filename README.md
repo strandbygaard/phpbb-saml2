@@ -31,6 +31,10 @@ phpbb3
     ext
         noud
             saml2
+                auth
+                    provider
+                config
+                    services.yml
     simplesaml
         attributemap
         bin
@@ -65,7 +69,7 @@ If you for instance use Apache with a vhost setup, do not forget to add the [Sim
 </VirtualHost>
 ```
 
-The [SimpleSamlPhP](http://www.simplesamlphp.org) authsources.php can for instance be configured like below for testing:
+The [SimpleSamlPhP](http://www.simplesamlphp.org) IDP authsources.php can for instance be configured like below for testing:
 
 ```
     'example-userpass' => array(
