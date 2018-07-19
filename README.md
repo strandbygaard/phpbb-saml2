@@ -13,7 +13,7 @@ The module is quite rudimentary, as it was developed in a very short timeframe f
 
 ##### Limitations
 
-This module is merely the plumbing between [SimpleSamlPhP](http://www.simplesamlphp.org) and [phpBB](http://www.phpBB.org). It does not deal the configuration of [SimpleSamlPhP](http://www.simplesamlphp.org), and it requires some knowledge of [phpBB](http://www.phpBB.org) to install and enable the authentication module.
+This module is merely the plumbing between [SimpleSamlPhP](http://www.simplesamlphp.org) and [phpBB](http://www.phpBB.com). It does not deal the configuration of [SimpleSamlPhP](http://www.simplesamlphp.org), and it requires some knowledge of [phpBB](http://www.phpBB.com) to install and enable the authentication module.
 
 [SimpleSamlPhP](http://www.simplesamlphp.org) is a very mature framework that is successfully used in large production environments with thousands of simultaneous users, and multiple logins (issued tokens) per second. It does require some knowledge about things like certificates, SSL, and SAML2 federation to configure it, but their website provides a great starting point for howtos.
 
@@ -23,8 +23,8 @@ I have successfully tested with module with several different identity providers
 
 ##### Installation
 
-You have to put the [SimpleSamlPhP](http://www.simplesamlphp.org) in your [phpBB](http://www.phpBB.org) directory.
-And this module in the [phpBB](http://www.phpBB.org) directory. Like so:
+You have to put the [SimpleSamlPhP](http://www.simplesamlphp.org) in your [phpBB](http://www.phpBB.com) directory.
+And this module in the [phpBB](http://www.phpBB.com) directory. Like so:
 
 ```
 phpbb3
@@ -38,7 +38,7 @@ phpbb3
         config
         etc..
 ```
-After configuring [SimpleSamlPhP](http://www.simplesamlphp.org), enable the extension and choise authentication method SAML2. And after this delete your [phpBB](http://www.phpBB.org) cache.
+After configuring [SimpleSamlPhP](http://www.simplesamlphp.org), enable the extension and choise authentication method SAML2. And after this delete your [phpBB](http://www.phpBB.com) cache.
 
 If you for instance use Apache with a vhost setup, do not forget to add the [SimpleSamlPhP](http://www.simplesamlphp.org) SetEnv and Alias, like so:
 
@@ -70,12 +70,6 @@ The [SimpleSamlPhP](http://www.simplesamlphp.org) authsources.php can for instan
 ```
     'example-userpass' => array(
         'exampleauth:UserPass',
-
-        // Give the user an option to save their username for future login attempts
-        // And when enabled, what should the default be, to save the username or not
-        //'remember.username.enabled' => FALSE,
-        //'remember.username.checked' => FALSE,
-
         'student:studentpass' => array(
             'uid' => array('student'),
             'eduPersonAffiliation' => array('registeredusers'),
@@ -86,3 +80,10 @@ The [SimpleSamlPhP](http://www.simplesamlphp.org) authsources.php can for instan
         ),
     ),
 ```
+
+##### Source
+
+This extension can be fetched from [https://github.com/noud/phpbb-saml2](https://github.com/noud/phpbb-saml2).
+
+
+
