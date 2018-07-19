@@ -1,7 +1,7 @@
-phpbb-saml2
-===========
+phpbb-saml2 (SSO)
+=================
 
-A custom authentication module for phpBB v3.2 that supports:
+A custom authentication module for phpBB v3.2 that supports Single sign-on (SSO):
 
 - Federated user authentication with SAML2
 - Automatic user profile creation on phpBB
