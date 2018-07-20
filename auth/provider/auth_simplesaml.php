@@ -2,7 +2,9 @@
 
 namespace noud\saml2\auth\provider;
 
-define('IN_PHPBB', true);
+if (!defined('IN_PHPBB')) {
+    exit;
+}
 
 require_once(__DIR__.'/../../../../../simplesaml/lib/_autoload.php');
 
