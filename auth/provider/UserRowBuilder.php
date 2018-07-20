@@ -8,7 +8,7 @@ class UserRowBuilder
     public function build(ClaimsUser $claimsUser)
     {
 
-		global $phpbb_container;
+        global $phpbb_container;
         $passwords_manager = $phpbb_container->get('passwords.manager');
 
         $user_row = array(
