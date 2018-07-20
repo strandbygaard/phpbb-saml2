@@ -2,6 +2,8 @@
 
 namespace noud\saml2\auth\provider;
 
+define('IN_PHPBB', true);
+
 require_once(__DIR__.'/../../../../../simplesaml/lib/_autoload.php');
 
 class auth_simplesaml extends \phpbb\auth\provider\base
@@ -58,6 +60,13 @@ class auth_simplesaml extends \phpbb\auth\provider\base
         $groupManager = new GroupManager();
         $userManager = new UserManager($groupManager);
         $claimsUser = new ClaimsUser($attributes, $map);
+        if (!$claimsUser->isValidUser()) {
+            return array(
+                'status' => LOGIN_ERROR_EXTERNAL_AUTH,
+                'error_msg' => 'LOGIN_ERROR_EXTERNAL_AUTH_SS',
+                'user_row' => array('user_id' => ANONYMOUS),
+            );
+        }
         // User is authenticated. Look up user in database.
         $row = $userManager->lookup($claimsUser);
         // User is found. Sync user attributes, get updated row, and login user using updated row.

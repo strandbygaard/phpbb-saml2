@@ -58,7 +58,9 @@ class UserManager
         // all the information has been compiled, add the user
         // tables affected: users table, profile_fields_data table, groups table, and config table.
         if (!function_exists('user_add')) {
-            include(__DIR__ . '/../../../../../includes/functions_user.php');
+            $phpbb_root_path = __DIR__ . '/../../../../../';
+            $phpEx = substr(strrchr(__FILE__, '.'), 1);
+            include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
         }
 
         $user_id = user_add($user_row);

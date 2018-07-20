@@ -8,6 +8,8 @@ class ClaimsUser
     private $map;
     private $groups;
 
+    private $validUser = true;
+
     public $userName;
     public $email;
 
@@ -28,7 +30,7 @@ class ClaimsUser
     private function setUserName(Array $attributes, ClaimMap $map)
     {
         if (!isset($attributes[$map->userNameType]) || !isset($attributes[$map->userNameType][0])) {
-            die("Missing username");
+            $this->validUser = false;
         }
 
         $userName = $attributes[$map->userNameType][0];
@@ -167,5 +169,13 @@ class ClaimsUser
 
         // Fallback to Danish, if the preferred language is not supported
         return 'da';
+    }
+
+    /**
+     * @return bool
+     */
+    public function isValidUser()
+    {
+        return $this->validUser;
     }
 }
