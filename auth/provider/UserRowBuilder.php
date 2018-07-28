@@ -1,15 +1,19 @@
 <?php
 
-require_once("ClaimsUser.php");
+namespace noud\saml2\auth\provider;
 
 class UserRowBuilder
 {
 
     public function build(ClaimsUser $claimsUser)
     {
+
+        global $phpbb_container;
+        $passwords_manager = $phpbb_container->get('passwords.manager');
+
         $user_row = array(
             'username' => $claimsUser->userName,
-            'user_password' => phpbb_hash(PasswordFactory::generate()),
+            'user_password' => $passwords_manager->hash(PasswordFactory::generate()),
             'user_email' => $claimsUser->email,
             'group_id' => (int)$claimsUser->getDefaultGroupId(),
             'user_timezone' => (float)'2',
@@ -21,5 +25,3 @@ class UserRowBuilder
         return $user_row;
     }
 }
-
-?>

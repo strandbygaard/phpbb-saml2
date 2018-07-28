@@ -1,7 +1,11 @@
 <?php
+
+namespace noud\saml2\auth\provider;
+
 class ClaimMap
 {
-    function __construct() {
+    function __construct()
+    {
     }
 
     public $userNameType;
@@ -11,4 +15,3 @@ class ClaimMap
     public $groupType;
     public $preferredLanguage;
 }
-?>

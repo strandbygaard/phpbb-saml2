@@ -1,0 +1,10 @@
+services:
+    noud.saml2:
+        class: noud\saml2\auth\provider\auth_simplesaml
+        arguments:
+            - '@dbal.conn'
+        tags:
+            - { name: auth.provider }
+parameters:
+    # Enable the usage of the super globals (_GET, _POST, _SERVER...)
+    core.disable_super_globals: false

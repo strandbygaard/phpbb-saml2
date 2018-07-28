@@ -1,0 +1,32 @@
+{
+	"name": "noud/saml2",
+	"type": "phpbb-extension",
+	"description": "SAML2 authentication plugin",
+	"homepage": "https://github.com/noud/phpbb-saml2",
+	"version": "1.0.4",
+	"keywords": ["phpBB", "Extension", "SAML", "SAML2"],
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Noud de Brouwer",
+			"email": "noud4@home.nl",
+			"homepage": "https://github.com/noud",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": ""
+	},
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"provide": {
+		 "phpbb/phpbb": "3.1.0-RC3"
+	}	,
+	"extra": {
+		"display-name": "SAML2",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2"
+		}
+	}
+}
