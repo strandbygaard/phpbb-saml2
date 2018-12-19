@@ -1,5 +1,5 @@
 services:
-    noud.saml2:
+    auth.provider.noud.saml2:
         class: noud\saml2\auth\provider\auth_simplesaml
         arguments:
             - '@dbal.conn'
